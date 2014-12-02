@@ -18,7 +18,7 @@ class HTML
       head {
         meta(charset: 'utf-8') +
         meta('http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1') +
-        title { 'Slow Verb' }
+        title { 'Slow Verb' } +
         style { 'body { font-size: 22px; }' }
       } +
       body { yield }
