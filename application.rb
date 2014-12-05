@@ -20,7 +20,10 @@ class HTML
         meta(charset: 'utf-8') +
         meta('http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1') +
         title { 'Slow Verb' } +
-        style { 'body { font-size: 22px; }' }
+        style {
+          'body { font-size: 22px; }' +
+          'a { color: black; text-decoration: none; }'
+        }
       } +
       body { yield }
     }
@@ -37,7 +40,13 @@ class Application < Sinatra::Base
 
   get '/' do
     HTML.new.page do
-      dictionary.generate_n_sentences(rand(1..3)).split('. ').join '<br>'
+      HTML.new.a(href: '/') {
+        rand(1..5).times.map { dictionary.generate_1_sentence }.join '<br>'
+      }
     end
+  end
+
+  get '/sentence' do
+    dictionary.generate_1_sentence
   end
 end
