@@ -1,52 +1,28 @@
-class HTML
-  def method_missing(type, attributes = {})
-    tag(type, attributes, (block_given? ? yield.to_s : nil))
-  end
-
-  def tag(type, attributes, content)
-    attributes.map { |k, v|
-      "#{k}='#{v}'"
-    }.join(' ').let { |attrs|
-      " #{attrs}" unless attrs.empty?
-    }.let { |attrs|
-      content.nil? ? "<#{type}#{attrs}>" : "<#{type}#{attrs}>#{content}</#{type}>"
-    }
-  end
-
-  def page
-    '<!doctype html>' +
-    html {
-      head {
-        meta(charset: 'utf-8') +
-        meta('http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1') +
-        title { 'Slow Verb' } +
-        style {
-          'body { font-size: 22px; }' +
-          'a { color: black; text-decoration: none; }'
-        }
-      } +
-      body { yield }
-    }
-  end
-end
-
-
 class Application < Sinatra::Base
   helpers do
     def dictionary
-      @dictionary ||= MarkyMarkov::Dictionary.new('./dictionary')
+      @dictionary ||= MarkyMarkov::Dictionary.new('./dictionary_3')
+    end
+
+    def verse(n = 1)
+      n = n.to_i
+      n = 1 if n.zero?
+      dictionary.generate_n_sentences(n)
+        .downcase
+        .strip
+        .gsub(/,$/, '.')
     end
   end
 
   get '/' do
     HTML.new.page do
       HTML.new.a(href: '/') {
-        rand(1..5).times.map { dictionary.generate_1_sentence }.join '<br>'
+        rand(1..5).times.map { verse(1) }.join '<br>'
       }
     end
   end
 
-  get '/sentence' do
-    dictionary.generate_1_sentence
+  get '/verse' do
+    verse params[:n]
   end
 end
