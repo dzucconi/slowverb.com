@@ -1,4 +1,4 @@
-ruby '2.1.4'
+ruby '2.2.1'
 source 'https://rubygems.org'
 
 gem 'puma'
@@ -7,4 +7,5 @@ gem 'marky_markov'
 
 group :development do
   gem 'tux'
+  gem 'byebug'
 end
