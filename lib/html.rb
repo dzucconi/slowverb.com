@@ -22,7 +22,8 @@ class HTML
         meta(charset: 'utf-8') +
         meta('http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1') +
         title { 'Slow Verb' } +
-        link(rel: 'stylesheet', type: 'text/css', href: stylesheet_path('application'))
+        link(rel: 'stylesheet', type: 'text/css', href: stylesheet_path('application')) +
+        script(src: javascript_path('application'), type: 'text/javascript') {}
       } +
       body { yield }
     }

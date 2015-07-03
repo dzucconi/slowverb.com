@@ -6,6 +6,8 @@ gem 'sinatra'
 gem 'marky_markov'
 gem 'sinatra-asset-pipeline'
 gem 'compass'
+gem 'uglifier'
+gem 'sass'
 
 group :development do
   gem 'tux'
