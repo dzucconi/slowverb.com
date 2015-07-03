@@ -21,7 +21,7 @@ class Application < Sinatra::Base
     end
   end
 
-  get '/' do
+  %w(/ /play).map { |route| get route do
     HTML.new.page do
       HTML.new.a(href: '/') {
         rand(1..5).times.map {
@@ -31,7 +31,7 @@ class Application < Sinatra::Base
         }.join ''
       }
     end
-  end
+  end }
 
   get '/verse' do
     verse params[:n]
