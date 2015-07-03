@@ -1,4 +1,6 @@
 class HTML
+  include Sprockets::Helpers
+
   def method_missing(type, attributes = {})
     tag(type, attributes, (block_given? ? yield.to_s : nil))
   end
@@ -20,10 +22,7 @@ class HTML
         meta(charset: 'utf-8') +
         meta('http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1') +
         title { 'Slow Verb' } +
-        style {
-          'body { font-size: 22px; }' +
-          'a { color: black; text-decoration: none; }'
-        }
+        link(rel: 'stylesheet', type: 'text/css', href: stylesheet_path('application'))
       } +
       body { yield }
     }

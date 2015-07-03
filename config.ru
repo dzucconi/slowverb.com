@@ -3,6 +3,8 @@ require 'bundler'
 
 Bundler.require
 
+require 'sinatra/asset_pipeline'
+
 %w(
   /config/initializers/**/*.rb
   /lib/**/*.rb
