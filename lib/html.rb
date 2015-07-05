@@ -28,7 +28,9 @@ class HTML
         link(rel: 'stylesheet', type: 'text/css', href: stylesheet_path('application')) +
         script(src: javascript_path('application'), type: 'text/javascript') {}
       } +
-      body { yield }
+      body {
+        yield + Analytics.new.tag(ENV['TRACKING_ID'])
+      }
     }
   end
 end
