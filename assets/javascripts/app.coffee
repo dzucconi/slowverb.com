@@ -21,15 +21,19 @@ words = (line) ->
 run = (callback, offset = duration * 10) ->
   $('body').empty()
 
-  $.get '/verse', (response) ->
-    sequences = _.flatten(response
-      .split ', '
-      .map words
-      .map queue
-    )
+  $.get('/verse')
+    .then (verse) ->
+      sequences = _.flatten(verse
+        .split ', '
+        .map words
+        .map queue
+      )
 
-    $.Velocity.RunSequence sequences
-    setTimeout callback or run, (sequences.length * duration) + offset
+      $.Velocity.RunSequence sequences
+      setTimeout callback or run, (sequences.length * duration) + offset
+
+    .fail ->
+      setTimeout callback or run, offset
 
 $ ->
   if location.pathname is '/play'
