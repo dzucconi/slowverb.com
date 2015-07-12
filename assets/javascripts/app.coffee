@@ -38,6 +38,8 @@ run = (callback, offset = duration * 10) ->
 $ ->
   if location.pathname is '/play'
     run()
+    # Refresh once every 30 minutes (suspected memory leak?)
+    setTimeout (-> location.reload()), 30 * 60 * 1000
   else
     click = _.partial run, $.noop, 0
     click()
