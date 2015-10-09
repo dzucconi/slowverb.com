@@ -36,13 +36,8 @@ run = (callback, offset = duration * 10) ->
       setTimeout callback or run, offset
 
 $ ->
-  if location.pathname is '/play'
-    run()
-    # Refresh once every 30 minutes (suspected memory leak?)
-    [key, val] = location.search.replace('?', '').split '='
-    int = if key is 'r' then val else 30
-    setTimeout (-> location.reload()), int * 60 * 1000
-  else
-    click = _.partial run, $.noop, 0
-    click()
-    $(document).click click
+  run()
+  # Refresh once every 30 minutes (suspected memory leak?)
+  [key, val] = location.search.replace('?', '').split '='
+  int = if key is 'r' then val else 30
+  setTimeout (-> location.reload()), int * 60 * 1000
