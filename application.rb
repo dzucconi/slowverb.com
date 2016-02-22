@@ -14,22 +14,26 @@ class Application < Sinatra::Base
     def verse(n = 1)
       n = n.to_i
       n = 1 if n.zero?
-      dictionary.generate_n_sentences(n)
+      verse = dictionary.generate_n_sentences(n)
         .downcase
         .strip
         .gsub(/,$/, '.')
+
+      RubyPants.new(verse).to_html
     end
   end
 
   %w(/ /play).map { |route| get route do
-    HTML.new.page do
-      HTML.new.a(href: '/') {
-        rand(1..5).times.map {
-          HTML.new.p do
-            verse(1).split(',').join('<br>')
-          end
-        }.join ''
-      }
+    HTML.new.instance_eval do
+      page do
+        a(href: '/') do
+          rand(1..5).times.map do
+            p do
+              verse(1).split(',').join('<br>')
+            end
+          end.join ''
+        end
+      end
     end
   end }
 
