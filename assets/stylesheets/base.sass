@@ -1,13 +1,33 @@
+$fs: 40px
+$lh: 50px
+$breakpoint: 640px
+
++global-reset()
+
+html
+  +box-sizing(border-box)
+
+*,
+*:before,
+*:after
+  box-sizing: inherit
+
 body
   background-color: black
   color: white
-  font-size: 50px
-  font-family: 'HelveticaNeue-CondensedBold', 'Arial Narrow', sans-serif
-  margin: 1em
-  line-height: 1.2
+  font-size: $fs
+  font-family: 'unionregular', serif
+  line-height: $lh
   text-rendering: optimizeLegibility
-  @media (max-width: 640px)
-    font-size: 30px
+  text-transform: uppercase
+  letter-spacing: 1px
+  -webkit-font-smoothing: antialiased
+  padding: $lh * 1.5
+  @media (max-width: $breakpoint)
+    padding: $lh
+    font-size: $fs / 2
+    line-height: $lh / 2
+
 a
   display: block
   width: 100%
