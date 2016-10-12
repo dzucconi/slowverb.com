@@ -8,8 +8,12 @@ gem 'compass'
 gem 'uglifier'
 gem 'sass'
 gem 'rubypants'
+gem 'marky_markov'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development do
+  gem 'foreman'
   gem 'tux'
   gem 'byebug'
+  gem 'rerun'
 end
