@@ -3,6 +3,13 @@ require 'bundler'
 
 Bundler.require
 
+use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*', headers: :any, methods: [:get, :post]
+  end
+end
+
 require 'sinatra/asset_pipeline'
 
 %w(
