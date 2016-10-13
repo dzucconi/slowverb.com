@@ -6,6 +6,10 @@ class Application < Sinatra::Base
   set :assets_css_compressor, :sass
   set :protection, except: [:frame_options]
 
+  get '/play' do
+    redirect to('/')
+  end
+
   get '/' do
     model = MODELS[:slow_verb]
 
