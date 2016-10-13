@@ -6,13 +6,17 @@ class Application < Sinatra::Base
   set :assets_css_compressor, :sass
   set :protection, except: [:frame_options]
 
+  helpers do
+    def model
+      MODELS[(params[:model] || DEFAULT_MODEL).to_sym]
+    end
+  end
+
   get '/play' do
     redirect to('/')
   end
 
   get '/' do
-    model = MODELS[:slow_verb]
-
     HTML.new.instance_eval do
       page do
         a(href: '/') do
@@ -27,7 +31,14 @@ class Application < Sinatra::Base
   end
 
   get '/verse' do
-    model = MODELS[(params[:model] || DEFAULT_MODEL).to_sym]
     model.verse params[:n]
+  end
+
+  get '/verse.json' do
+    content_type :json, 'charset' => 'utf-8'
+
+    model.verse(params[:n])
+      .split(', ')
+      .to_json
   end
 end
