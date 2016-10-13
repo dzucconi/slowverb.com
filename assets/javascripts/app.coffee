@@ -21,10 +21,9 @@ words = (line) ->
 run = (callback, offset = duration * 10) ->
   $('body').empty()
 
-  $.get('/verse')
-    .then (verse) ->
-      sequences = _.flatten(verse
-        .split ', '
+  $.get('/verse.json' + window.location.search)
+    .then (verses) ->
+      sequences = _.flatten(verses
         .map words
         .map queue
       )
