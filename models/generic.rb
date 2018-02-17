@@ -6,7 +6,7 @@ class Generic
   end
 
   def __verse__
-    raise Exception.new('Not implemented')
+    raise Exception, 'Not implemented'
   end
 
   def verse(input, n = 1)

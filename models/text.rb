@@ -11,11 +11,11 @@ class Text < Generic
 
   def __verse__(_, n)
     File.readlines(source)
-      .sample(n)
-      .map { |line| line.downcase.split(';').sample }
-      .flatten
-      .map { |x| RubyPants.new(x.strip).to_html }
-      .take(n)
-      .join(', ')
+        .sample(n)
+        .map { |line| line.downcase.split(';').sample }
+        .flatten
+        .map { |x| RubyPants.new(x.strip).to_html }
+        .take(n)
+        .join(', ')
   end
 end

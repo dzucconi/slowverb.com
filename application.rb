@@ -1,8 +1,8 @@
 class Application < Sinatra::Base
   register Sinatra::AssetPipeline
 
-  set :assets_precompile, %w(application.css application.js *.ico *png *.svg *.woff *.woff2)
-  set :assets_prefix, %w(assets)
+  set :assets_precompile, %w[application.css application.js *.ico *png *.svg *.woff *.woff2]
+  set :assets_prefix, %w[assets]
   set :assets_css_compressor, :sass
   set :protection, except: [:frame_options]
 
@@ -38,7 +38,7 @@ class Application < Sinatra::Base
     content_type :json, 'charset' => 'utf-8'
 
     model.verse(params[:n])
-      .split(', ')
-      .to_json
+         .split(', ')
+         .to_json
   end
 end
