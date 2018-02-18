@@ -1,4 +1,5 @@
-require 'byebug'
+require 'cgi'
+
 class Bot
   attr_reader :id, :client
   attr_accessor :verses
@@ -10,6 +11,7 @@ class Bot
   end
 
   def tweet
-    @client.update(MODELS[@id].__verse__(@verses))
+    msg = CGI.unescapeHTML(MODELS[@id].verse(@verses))
+    @client.update(msg)
   end
 end
