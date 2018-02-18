@@ -20,7 +20,10 @@ require './application'
 
 namespace :bot do
   task :tweet do
-    $twitter.update(MODELS[:slow_verb].__verse__(1),
+    model = ENV['model'].to_sym || :slow_verb
+    verses = ENV['verses'].to_i || 1
+
+    $twitter.update(MODELS[model].__verse__(verses),
       lat: 38.942,
       long: 1.40483
     )
