@@ -22,19 +22,6 @@ Performance/TimesMap:
   Exclude:
     - 'application.rb'
 
-# Offense count: 7
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'application.rb'
-    - 'config/initializers/object.rb'
-    - 'lib/analytics.rb'
-    - 'lib/html.rb'
-    - 'models/generic.rb'
-    - 'models/markov.rb'
-    - 'models/text.rb'
-
 # Offense count: 1
 Style/MethodMissing:
   Exclude:
