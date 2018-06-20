@@ -50,7 +50,7 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     msgpack (1.0.0)
-    multi_json (1.12.1)
+    multi_json (1.13.1)
     multipart-post (2.0.0)
     naught (1.1.0)
     parallel (1.12.1)
@@ -59,7 +59,7 @@ GEM
     powerpack (0.1.1)
     public_suffix (3.0.2)
     puma (3.6.0)
-    rack (1.6.4)
+    rack (1.6.10)
     rack-cors (0.4.0)
     rack-protection (1.5.3)
       rack
@@ -104,7 +104,7 @@ GEM
       sprockets (~> 2.12)
       sprockets-helpers (~> 1.1)
       sprockets-sass (~> 1.2)
-    sprockets (2.12.4)
+    sprockets (2.12.5)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -164,4 +164,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.3
+   1.16.0
