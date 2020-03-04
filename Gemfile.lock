@@ -58,7 +58,7 @@ GEM
       ast (~> 2.4.0)
     powerpack (0.1.1)
     public_suffix (3.0.2)
-    puma (3.6.0)
+    puma (3.12.4)
     rack (1.6.10)
     rack-cors (0.4.0)
     rack-protection (1.5.3)
