@@ -59,9 +59,9 @@ GEM
     powerpack (0.1.1)
     public_suffix (3.0.2)
     puma (3.12.6)
-    rack (1.6.12)
+    rack (1.6.13)
     rack-cors (0.4.0)
-    rack-protection (1.5.3)
+    rack-protection (1.5.5)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
