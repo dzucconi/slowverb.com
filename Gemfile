@@ -8,7 +8,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'rubypants'
 gem 'sass', '3.4.25'
 gem 'sinatra'
-gem 'sinatra-asset-pipeline', '0.7.0'
+gem 'sinatra-asset-pipeline', '2.2.1'
 gem 'twitter'
 gem 'uglifier'
 
