@@ -1,4 +1,4 @@
-ruby '2.6.3'
+ruby '4.0.6'
 source 'https://rubygems.org'
 
 gem 'compass'
